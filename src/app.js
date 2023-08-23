@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
+import { viewsRouter } from './routes/views.router.js';
 
 import usersRouter from './routes/users.router.js';
 import petsRouter from './routes/pets.router.js';
@@ -18,5 +19,8 @@ app.use('/api/users',usersRouter);
 app.use('/api/pets',petsRouter);
 app.use('/api/adoptions',adoptionsRouter);
 app.use('/api/sessions',sessionsRouter);
+app.use(viewsRouter);
+
+
 
 app.listen(PORT,()=>console.log(`Listening on ${PORT}`))
